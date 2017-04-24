@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="ckChoi">
+
+        <title>결과는?</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="../css/index.css" rel="stylesheet">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand">나와 닮은 연예인 찾기</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Page Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-sm-3 col-lg-3 col-md-3"></div>
+                        <div class="col-sm-6 col-lg-6 col-md-6">
+                            <img src="<Storage_Path>" class="uploadImg">
+                            <br>
+                            <% if(howMany == 1){ %>
+                            <h3>당신은 '<%=who%>' 님을 가장 많이 닮으셨습니다.</h3>
+                            <h4><big><%=confidence%>%</big>의 일치율</h4>
+                            <br>
+                            <a href="http://people.search.naver.com/search.naver?where=nexearch&query=<%=encodeWho%>&sm=tab_etc&ie=utf8&key=PeopleService"><%=who%>님 프로필 보러가기</a>
+                            <hr>
+                            <p>결과가 마음에 안드시면 Naver에 항의하세요!</p>
+                            <% if(Number(confidence) < 20){ %>
+                            <p>일치율이 20%미만이면 닮은 연예인이 없다고 생각하세요</p>
+                            <% } %>
+                            <% } else if(howMany == 0){ %>
+                            <h3> 사진에 아무도 안 나온것 같아요! </h3>
+                            <% } else{ %>
+                            <h3> 죄송합니다. 혼자 나온 사진을 업로드해주세요. </h3>
+                            <p> 여럿이서 나온 사진은 정확하게 판단이 안돼요ㅠㅠ </p>
+                            <% } %>
+                            <h1> <a href="/"> 다른 사진으로 해보시겠어요? </a> </h1>
+                        </div>
+                        <div class="col-sm-3 col-lg-3 col-md-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+
+        <div class="container">
+            <hr>
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; CK Choi ,2017</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- /.container -->
+
+        <!-- jQuery -->
+        <script src="../js/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="../js/bootstrap.min.js"></script>
+    </body>
+</html>
